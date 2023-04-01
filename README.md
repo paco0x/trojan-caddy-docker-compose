@@ -4,6 +4,10 @@ Trojan server and Caddy integration with Docker compose。
 
 Trojan server listens port 443. For https requests from normal sources, Trojan server will forward them to Caddy server for processing and return to the Web page while requests from Trojan client will be proxied by Trojan server which like V2ray+Websocket+TLS avoid GFW detection by disguising requests.
 
+## Preparations
+
+Install Warp: [https://github.com/haoel/haoel.github.io#94-cloudflare-warp-%E5%8E%9F%E7%94%9F-ip](https://github.com/haoel/haoel.github.io#94-cloudflare-warp-%E5%8E%9F%E7%94%9F-ip)
+
 ## Usage
 
 Git clone this repo then change directory to this project.
