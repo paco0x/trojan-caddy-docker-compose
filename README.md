@@ -1,7 +1,5 @@
 # trojan-caddy-docker-compose
 
-[中文文档](https://github.com/FaithPatrick/trojan-caddy-docker-compose/blob/master/README_CN.md)
-
 Trojan server and Caddy integration with Docker compose。
 
 Trojan server listens port 443. For https requests from normal sources, Trojan server will forward them to Caddy server for processing and return to the Web page while requests from Trojan client will be proxied by Trojan server which like V2ray+Websocket+TLS avoid GFW detection by disguising requests.
@@ -20,7 +18,7 @@ Git clone this repo then change directory to this project.
         }
         file_server
     }
-    www.yourdomain.com:443 {
+    www.yourdomain.com:8443 {
         root * /usr/src/trojan
         log {
             output file /usr/src/caddy.log

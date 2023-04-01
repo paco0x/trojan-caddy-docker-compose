@@ -116,7 +116,7 @@ if [ $real_addr == $local_addr ] ; then
     sleep 1s
 
 # 假设已经clone这个仓库的用户已经安装完成了docker-compose以及进入到当前目录下
-# 
+#
 # install_docker
 # install_docker_compose
 # git clone https://github.com/Robot-Chen/trojan-caddy-docker-compose.git
@@ -130,7 +130,7 @@ ${your_domain}:80 {
     }
     file_server
 }
-${your_domain}:443 {
+${your_domain}:8443 {
     root * /usr/src/trojan
     log {
         output file /usr/src/caddy.log
@@ -146,7 +146,7 @@ EOF
     "run_type": "server",
     "local_addr": "0.0.0.0",
     "local_port": 443,
-    "remote_addr": "$your_domain",
+    "remote_addr": "127.0.0.1",
     "remote_port": 80,
     "password": [
         "$trojan_passwd"
@@ -229,7 +229,7 @@ function install_docker_compose(){
     pip install docker-compose
 
     if [ $? = 1 ]; then
-    
+
     curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
     ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
@@ -268,7 +268,7 @@ start_menu(){
     install_trojan
     ;;
     2)
-    remove_trojan 
+    remove_trojan
     ;;
     0)
     exit 1

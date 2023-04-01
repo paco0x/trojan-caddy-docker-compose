@@ -4,9 +4,7 @@ services:
   trojan:
     image: teddysun/trojan-go
     restart: unless-stopped
-    ports:
-      - "443:443"
-      - "443:443/udp"
+    network_mode: "host"
     volumes:
       - ./trojan/config:/etc/trojan-go
       - ./ssl:/ssl
@@ -16,8 +14,7 @@ services:
   caddy:
     image: caddy
     restart: unless-stopped
-    ports:
-      - "80:80"
+    network_mode: "host"
     volumes:
       - ./wwwroot:/usr/src
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
